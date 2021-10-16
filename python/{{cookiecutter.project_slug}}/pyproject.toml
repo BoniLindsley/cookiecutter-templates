@@ -1,0 +1,80 @@
+[tool.black]
+#line-length = 88
+line-length = 73
+
+[tool.coverage.run]
+branch = true
+command_line = "-m pytest"
+omit = [
+  # Usually requires full-fletched set up to use.
+  "*/__main__.py",
+]
+source = [
+  "src",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+  "pragma: no cover",
+  "@typing.overload",
+]
+fail_under = 100
+show_missing = true
+skip_covered = true
+
+[tool.mypy]
+mypy_path = "src:stubs:tests"
+show_error_codes = true
+strict = true
+
+[tool.pylint.BASIC]
+# Violation of naming convention that should be accepted.
+good-names = [
+  # Used by convention.
+  "_T_co",  # TypeVar name.
+]
+
+[tool.pylint.FORMAT]
+max-line-length = 73
+
+[tool.pylint."MESSAGES CONTROL"]
+disable = [
+  "fixme",  # Not every TODO is urgent. Especially with no issue tracker.
+  # Global statements are already explicit.
+  # Not using per-case diables which will end up being used n every case.
+  # By doing a disable here, finding them when necessary will be easier.
+  "global-statement",
+  "missing-class-docstring",
+  "missing-function-docstring",
+  "missing-module-docstring",
+  "no-self-use",
+  "too-few-public-methods",
+  "too-many-ancestors",
+  "too-many-instance-attributes",
+  # Having too many lines it not necessary an indication of issues.
+  "too-many-lines",
+  "too-many-public-methods",
+]
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+skipsdist = True
+
+[testenv]
+commands =
+  {envpython} -m black --check --diff \
+    src/{{cookiecutter.project_slug}} \
+    setup.py \
+    tests/test_{{cookiecutter.project_slug}}
+  {envpython} -m mypy \
+    --package {{cookiecutter.project_slug}} \
+    --package test_{{cookiecutter.project_slug}} \
+    --package docs
+  {envpython} -m mypy setup.py
+  {envpython} -m coverage erase
+  {envpython} -m coverage run
+  {envpython} -m coverage report
+extras = dev
+usedevelop = True
+"""

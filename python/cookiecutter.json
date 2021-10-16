@@ -1,0 +1,9 @@
+{
+  "full_name": "My Name",
+  "email": "my.name@example.com",
+  "project_name": "My Python Project",
+  "project_slug":
+    "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
+  "project_short_description": "My template for Python projects",
+  "version": "0.1.0"
+}
