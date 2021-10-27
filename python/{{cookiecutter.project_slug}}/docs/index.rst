@@ -3,6 +3,3 @@
    :caption: Contents:
 
 .. include:: ../README.md
-
-.. automodule:: phile
-.. automodule:: test_phile
