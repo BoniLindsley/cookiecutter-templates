@@ -2,11 +2,12 @@
 
 # # Sphinx configuration file
 
-import os
+import pathlib
 import sys
 
 # Let documentation source code find source code of this package.
-sys.path.insert(0, os.path.dirname(os.getcwd()))
+script_path = pathlib.Path(__file__).absolute()
+sys.path.insert(0, str(script_path.parent.parent / "src"))
 
 # ## Project information
 
