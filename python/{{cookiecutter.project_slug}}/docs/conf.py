@@ -11,27 +11,27 @@ sys.path.insert(0, str(script_path.parent.parent / "src"))
 
 # ## Project information
 
-project = '{{cookiecutter.project_name}}'
+project = "{{cookiecutter.project_name}}"
 """The documented project’s name."""
 
-author = '{{cookiecutter.full_name}}'
+author = "{{cookiecutter.full_name}}"
 """
 The author name(s) of the document.
 
 The default value is 'unknown'.
 """
 
-copyright = '{{cookiecutter.full_name}}'
+copyright = "{{cookiecutter.full_name}}"
 """A copyright statement in the style '2008, Author Name'."""
 
 # ## General configuration
 
 extensions = [
-    'recommonmark',
-    'sphinx.ext.autodoc',
-    'sphinx.ext.coverage',
-    'sphinx.ext.intersphinx',
-    'sphinx.ext.viewcode',
+    "recommonmark",
+    "sphinx.ext.autodoc",
+    "sphinx.ext.coverage",
+    "sphinx.ext.intersphinx",
+    "sphinx.ext.viewcode",
 ]
 """
 A list of strings that are module names of extensions.
@@ -48,8 +48,8 @@ for that, you only need to provide a `setup()` function in it.
 """
 
 source_suffix = {
-    '.rst': 'restructuredtext',
-    '.md': 'markdown',
+    ".rst": "restructuredtext",
+    ".md": "markdown",
 }
 """
 The file extensions of source files.
@@ -67,7 +67,7 @@ Sphinx will consider that all to be 'restructuredtext' file type.
 * Changed in version 1.8: Support file type mapping
 """
 
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 """
 A list of glob-style patterns that should be excluded
 when looking for source files.
@@ -83,7 +83,7 @@ in `html_static_path` and `html_extra_path`.
 
 # ## Extension: sphinx.ext.autodoc
 
-autoclass_content = 'class'
+autoclass_content = "class"
 """
 This value selects what content will be inserted
 into the main body of an autoclass directive.
@@ -111,15 +111,15 @@ autodoc_default_options = {
     # Do not show these members.
     # Note that documentation for `__init__` can still be added
     # by setting `autoclass_content` to `both` or `init`.
-    'exclude-members': '__dict__, __module__, __weakref__',
+    "exclude-members": "__dict__, __module__, __weakref__",
     # Add all documented members. Boolean or 'var1, var2'.
-    'members': True,
+    "members": True,
     # Add dunder members.
-    'special-members': True,
+    "special-members": True,
     # Insert list of base classes.
-    'show-inheritance': True,
+    "show-inheritance": True,
     # Include undocumented members
-    'undoc-members': True,
+    "undoc-members": True,
     #'ignore-module-all',
     #'imported-members',
     #'inherited-members',
@@ -129,7 +129,7 @@ autodoc_default_options = {
 
 autodoc_inherit_docstrings = False
 
-autodoc_typehints = 'description'
+autodoc_typehints = "description"
 """
 How to represents typehints.
 
@@ -147,7 +147,7 @@ New in version 3.0: New option 'description' is added.
 # ## Extension: sphinx.ext.intersphinx
 
 intersphinx_mapping = {
-    'python': ('https://docs.python.org/3', None),
+    "python": ("https://docs.python.org/3", None),
 }
 """
 The locations and names of other projects
